@@ -1,1 +1,1 @@
-# celeste-network
+# Celeste Network

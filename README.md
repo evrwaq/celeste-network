@@ -2,7 +2,7 @@
 
 ## Modules
 
-- User
+- User (Celeste ID)
   - Account
   - Games/library
   - Trophies/Achievements

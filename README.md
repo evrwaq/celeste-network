@@ -7,6 +7,7 @@
   - Games/library
   - Trophies/Achievements
   - Friends
+  - Groups
 - Games
   - Game info (price, description, images, videos etc)
   - Trophies list

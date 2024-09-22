@@ -241,3 +241,24 @@ The **Celeste ID** module is responsible for account and profile management, off
 ```
 
 </details>
+
+### 5. **Active Sessions**
+
+<details>
+  <summary>All active sessions for the user</summary>
+  <br/>
+
+```typescript
+{
+  "activeSessions": [
+    {
+      "sessionId": "session123",
+      "device": "iPhone",
+      "loginDate": "2024-01-14T12:34:56Z",
+      "ipAddress": "192.168.0.1"
+    }
+  ]
+}
+```
+
+</details>

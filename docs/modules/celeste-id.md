@@ -197,3 +197,26 @@ The **Celeste ID** module is responsible for account and profile management, off
 ```
 
 </details>
+
+### 3. **User Game Library**
+
+<details>
+  <summary>Only games in the user's library</summary>
+  <br/>
+
+```typescript
+{
+  "library": [
+    {
+      "gameId": "game123",
+      "purchaseDate": "2024-01-15"
+    },
+    {
+      "gameId": "game456",
+      "purchaseDate": "2024-02-01"
+    }
+  ]
+}
+```
+
+</details>

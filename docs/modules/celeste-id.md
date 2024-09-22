@@ -220,3 +220,24 @@ The **Celeste ID** module is responsible for account and profile management, off
 ```
 
 </details>
+
+### 4. **User Purchase History**
+
+<details>
+  <summary>Full purchase history of the user</summary>
+  <br/>
+
+```typescript
+{
+  "purchaseHistory": [
+    {
+      "purchaseId": "purchase123",
+      "gameId": "game123",
+      "purchaseDate": "2024-01-15",
+      "price": "59.99R$"
+    }
+  ]
+}
+```
+
+</details>

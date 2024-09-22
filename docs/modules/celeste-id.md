@@ -150,3 +150,50 @@ The **Celeste ID** module is responsible for account and profile management, off
 ```
 
 </details>
+
+### 2. **User Played Games**
+
+<details>
+  <summary>Only games played by the user</summary>
+  <br/>
+
+```typescript
+{
+  "playedGames": [
+    {
+      "gameId": "game123",
+      "playStartDate": "2024-01-20",
+      "trophies": [
+        {
+          "trophyId": "trophy456",
+          "name": "First Step",
+          "unlocked": true,
+          "unlockedAt": "2024-01-21",
+          "score": 10,
+          "tier": "bronze",
+          "unlockConditions": "Complete the first level of the game"
+        },
+        {
+          "trophyId": "trophy789",
+          "name": "Master Explorer",
+          "unlocked": false,
+          "score": 25,
+          "tier": "silver",
+          "unlockConditions": "Discover all secret areas"
+        },
+        {
+          "trophyId": "platinum123",
+          "name": "Ultimate Champion",
+          "unlocked": false,
+          "score": 100,
+          "tier": "platinum",
+          "unlockConditions": "Unlock all other trophies in the game"
+        }
+      ],
+      "trophyProgress": 33.33 // Based on 1 out of 3 regular trophies unlocked (platinum included in total count)
+    }
+  ]
+}
+```
+
+</details>

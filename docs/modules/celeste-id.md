@@ -55,13 +55,7 @@ The **Celeste ID** module is responsible for account and profile management, off
 
 ---
 
-## API Response
-
-### 1. **All User Info**
-
-<details>
-  <summary>All user info</summary>
-  <br/>
+## Celeste ID Entity (Database Structure)
 
 ```typescript
 {
@@ -100,14 +94,6 @@ The **Celeste ID** module is responsible for account and profile management, off
           "score": 25,
           "tier": "silver",
           "unlockConditions": "Discover all secret areas"
-        },
-        {
-          "trophyId": "trophy987",
-          "name": "Ultimate Explorer",
-          "unlocked": false,
-          "score": 50,
-          "tier": "gold",
-          "unlockConditions": "Complete the game without losing a life"
         },
         {
           "trophyId": "platinum123",
@@ -149,116 +135,178 @@ The **Celeste ID** module is responsible for account and profile management, off
 }
 ```
 
-</details>
+---
 
-### 2. **User Played Games**
+## API Requests and Responses
 
-<details>
-  <summary>Only games played by the user</summary>
-  <br/>
+### 1. **Account Creation**
 
-```typescript
-{
-  "playedGames": [
-    {
-      "gameId": "game123",
-      "playStartDate": "2024-01-20",
-      "trophies": [
-        {
-          "trophyId": "trophy456",
-          "name": "First Step",
-          "unlocked": true,
-          "unlockedAt": "2024-01-21",
-          "score": 10,
-          "tier": "bronze",
-          "unlockConditions": "Complete the first level of the game"
-        },
-        {
-          "trophyId": "trophy789",
-          "name": "Master Explorer",
-          "unlocked": false,
-          "score": 25,
-          "tier": "silver",
-          "unlockConditions": "Discover all secret areas"
-        },
-        {
-          "trophyId": "platinum123",
-          "name": "Ultimate Champion",
-          "unlocked": false,
-          "score": 100,
-          "tier": "platinum",
-          "unlockConditions": "Unlock all other trophies in the game"
-        }
-      ],
-      "trophyProgress": 33.33 // Based on 1 out of 3 regular trophies unlocked (platinum included in total count)
-    }
-  ]
-}
-```
+- **Route**: `POST /api/celeste-id/register`
+- **Request Body**:
+  ```json
+  {
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "password123"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "Account created successfully",
+    "userId": "abc123",
+    "email": "johndoe@example.com"
+  }
+  ```
 
-</details>
+### 2. **Login**
 
-### 3. **User Game Library**
+- **Route**: `POST /api/celeste-id/login`
+- **Request Body**:
+  ```json
+  {
+    "email": "johndoe@example.com",
+    "password": "password123"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "Login successful",
+    "token": "jwt-token",
+    "userId": "abc123",
+    "name": "John Doe"
+  }
+  ```
 
-<details>
-  <summary>Only games in the user's library</summary>
-  <br/>
+### 3. **Password Recovery**
 
-```typescript
-{
-  "library": [
-    {
-      "gameId": "game123",
-      "purchaseDate": "2024-01-15"
-    },
-    {
-      "gameId": "game456",
-      "purchaseDate": "2024-02-01"
-    }
-  ]
-}
-```
+- **Route**: `POST /api/celeste-id/recover-password`
+- **Request Body**:
+  ```json
+  {
+    "email": "johndoe@example.com"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "Password recovery email sent to johndoe@example.com"
+  }
+  ```
 
-</details>
+### 4. **Password Change**
 
-### 4. **User Purchase History**
+- **Route**: `POST /api/celeste-id/change-password`
+- **Request Body**:
+  ```json
+  {
+    "currentPassword": "password123",
+    "newPassword": "newpassword456"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "Password change request initiated. Please check your email to confirm the change."
+  }
+  ```
 
-<details>
-  <summary>Full purchase history of the user</summary>
-  <br/>
+### 5. **Profile Update**
 
-```typescript
-{
-  "purchaseHistory": [
-    {
-      "purchaseId": "purchase123",
-      "gameId": "game123",
-      "purchaseDate": "2024-01-15",
-      "price": "59.99R$"
-    }
-  ]
-}
-```
+- **Route**: `PUT /api/celeste-id/update-profile`
+- **Request Body**:
+  ```json
+  {
+    "name": "John Doe",
+    "profileImage": "url-to-new-image"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "Profile updated successfully",
+    "name": "John Doe",
+    "profileImage": "url-to-new-image"
+  }
+  ```
 
-</details>
+### 6. **Email Change**
 
-### 5. **Active Sessions**
+- **Route**: `POST /api/celeste-id/change-email`
+- **Request Body**:
+  ```json
+  {
+    "newEmail": "newemail@example.com"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "message": "Email change request initiated. Please check your new email to confirm the change."
+  }
+  ```
 
-<details>
-  <summary>All active sessions for the user</summary>
-  <br/>
+### 7. **View Game Library**
 
-```typescript
-{
-  "activeSessions": [
-    {
-      "sessionId": "session123",
-      "device": "iPhone",
-      "loginDate": "2024-01-14T12:34:56Z",
-      "ipAddress": "192.168.0.1"
-    }
-  ]
-}
-```
+- **Route**: `GET /api/celeste-id/library`
+- **Response**:
+  ```json
+  {
+    "library": [
+      {
+        "gameId": "game123",
+        "purchaseDate": "2024-01-15"
+      },
+      {
+        "gameId": "game456",
+        "purchaseDate": "2024-02-01"
+      }
+    ]
+  }
+  ```
 
-</details>
+### 8. **View Game History**
+
+- **Route**: `GET /api/celeste-id/game-history`
+- **Response**:
+  ```json
+  {
+    "playedGames": [
+      {
+        "gameId": "game123",
+        "playStartDate": "2024-01-20",
+        "trophies": [
+          {
+            "trophyId": "trophy456",
+            "name": "First Step",
+            "unlocked": true,
+            "unlockedAt": "2024-01-21",
+            "score": 10,
+            "tier": "bronze",
+            "unlockConditions": "Complete the first level of the game"
+          }
+        ]
+      }
+    ]
+  }
+  ```
+
+### 9. **Session Management**
+
+- **Route**: `GET /api/celeste-id/sessions`
+- **Response**:
+  ```json
+  {
+    "activeSessions": [
+      {
+        "sessionId": "session123",
+        "device": "iPhone",
+        "loginDate": "2024-01-14T12:34:56Z",
+        "ipAddress": "192.168.0.1"
+      }
+    ]
+  }
+  ```
+
+---

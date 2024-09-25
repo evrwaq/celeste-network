@@ -112,7 +112,10 @@ The **Celeste ID** module is responsible for account and profile management, off
       "purchaseId": "purchase123",
       "gameId": "game123",
       "purchaseDate": "2024-01-15",
-      "price": "59.99R$"
+      "price": {
+        "value": 59.99,
+        "currency": "$"
+      }
     }
   ],
   "activeSessions": [

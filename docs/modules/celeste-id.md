@@ -149,6 +149,7 @@ The **Celeste ID** module is responsible for account and profile management, off
   ```json
   {
     "name": "John Doe",
+    "username": "john_doe",
     "email": "johndoe@example.com",
     "password": "password123"
   }
@@ -156,9 +157,7 @@ The **Celeste ID** module is responsible for account and profile management, off
 - **Response**:
   ```json
   {
-    "message": "Account created successfully",
-    "userId": "abc123",
-    "email": "johndoe@example.com"
+    "accessToken": "jwt-token"
   }
   ```
 
@@ -175,10 +174,7 @@ The **Celeste ID** module is responsible for account and profile management, off
 - **Response**:
   ```json
   {
-    "message": "Login successful",
-    "token": "jwt-token",
-    "userId": "abc123",
-    "name": "John Doe"
+    "accessToken": "jwt-token"
   }
   ```
 

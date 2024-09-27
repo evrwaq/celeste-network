@@ -197,6 +197,13 @@ The **Celeste ID** module is responsible for account and profile management, off
 ### 4. **Password Change**
 
 - **Route**: `POST /api/celeste-id/change-password`
+
+- **Request Headers**:
+  ```json
+  {
+    "Authorization": "Bearer jwt-token"
+  }
+  ```
 - **Request Body**:
   ```json
   {
@@ -214,6 +221,13 @@ The **Celeste ID** module is responsible for account and profile management, off
 ### 5. **Profile Update**
 
 - **Route**: `PUT /api/celeste-id/update-profile`
+
+- **Request Headers**:
+  ```json
+  {
+    "Authorization": "Bearer jwt-token"
+  }
+  ```
 - **Request Body**:
   ```json
   {
@@ -233,6 +247,13 @@ The **Celeste ID** module is responsible for account and profile management, off
 ### 6. **Email Change**
 
 - **Route**: `POST /api/celeste-id/change-email`
+
+- **Request Headers**:
+  ```json
+  {
+    "Authorization": "Bearer jwt-token"
+  }
+  ```
 - **Request Body**:
   ```json
   {
@@ -249,6 +270,13 @@ The **Celeste ID** module is responsible for account and profile management, off
 ### 7. **View Game Library**
 
 - **Route**: `GET /api/celeste-id/library`
+
+- **Request Headers**:
+  ```json
+  {
+    "Authorization": "Bearer jwt-token"
+  }
+  ```
 - **Response**:
   ```json
   {

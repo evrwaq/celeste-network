@@ -145,25 +145,46 @@ The **Celeste ID** module is responsible for account and profile management, off
 ### 1. **Account Creation**
 
 - **Route**: `POST /api/celeste-id/register`
+
 - **Request Body**:
   ```json
   {
     "name": "John Doe",
-    "username": "john_doe",
     "email": "johndoe@example.com",
     "password": "password123"
   }
   ```
-- **Response**:
+- **Response** (Success):
   ```json
   {
-    "accessToken": "jwt-token"
+    "message": "Account created successfully",
+    "userId": "abc123",
+    "email": "johndoe@example.com"
+  }
+  ```
+- **Response** (400 Validation Error - Invalid Email):
+  ```json
+  {
+    "error": "Invalid email format"
+  }
+  ```
+- **Response** (400 Validation Error - Weak Password):
+  ```json
+  {
+    "error": "Password must be at least 8 characters long"
+  }
+  ```
+- **Response** (500 Server Error):
+  ```json
+  {
+    "error": "Internal server error. Please try again later."
   }
   ```
 
 ### 2. **Login**
 
 - **Route**: `POST /api/celeste-id/login`
+
 - **Request Body**:
   ```json
   {
@@ -171,30 +192,55 @@ The **Celeste ID** module is responsible for account and profile management, off
     "password": "password123"
   }
   ```
-- **Response**:
+- **Response** (Success):
   ```json
   {
     "accessToken": "jwt-token"
+  }
+  ```
+- **Response** (400 Validation Error - Invalid Credentials):
+  ```json
+  {
+    "error": "Invalid email or password"
+  }
+  ```
+- **Response** (500 Server Error):
+  ```json
+  {
+    "error": "Internal server error. Please try again later."
   }
   ```
 
 ### 3. **Password Recovery**
 
 - **Route**: `POST /api/celeste-id/recover-password`
+
 - **Request Body**:
   ```json
   {
     "email": "johndoe@example.com"
   }
   ```
-- **Response**:
+- **Response** (Success):
   ```json
   {
     "message": "Password recovery email sent to johndoe@example.com"
   }
   ```
+- **Response** (400 Validation Error - Email Not Found):
+  ```json
+  {
+    "error": "Email not found"
+  }
+  ```
+- **Response** (500 Server Error):
+  ```json
+  {
+    "error": "Internal server error. Please try again later."
+  }
+  ```
 
-### 4. **Password Change**
+### 4. **Password Change** (Requires Authentication)
 
 - **Route**: `POST /api/celeste-id/change-password`
 
@@ -211,14 +257,32 @@ The **Celeste ID** module is responsible for account and profile management, off
     "newPassword": "newpassword456"
   }
   ```
-- **Response**:
+- **Response** (Success):
   ```json
   {
     "message": "Password change request initiated. Please check your email to confirm the change."
   }
   ```
+- **Response** (400 Validation Error - Incorrect Current Password):
+  ```json
+  {
+    "error": "Current password is incorrect"
+  }
+  ```
+- **Response** (401 Authentication Error):
+  ```json
+  {
+    "error": "Unauthorized. Token is invalid or expired."
+  }
+  ```
+- **Response** (500 Server Error):
+  ```json
+  {
+    "error": "Internal server error. Please try again later."
+  }
+  ```
 
-### 5. **Profile Update**
+### 5. **Profile Update** (Requires Authentication)
 
 - **Route**: `PUT /api/celeste-id/update-profile`
 
@@ -235,7 +299,7 @@ The **Celeste ID** module is responsible for account and profile management, off
     "profileImage": "url-to-new-image"
   }
   ```
-- **Response**:
+- **Response** (Success):
   ```json
   {
     "message": "Profile updated successfully",
@@ -243,8 +307,20 @@ The **Celeste ID** module is responsible for account and profile management, off
     "profileImage": "url-to-new-image"
   }
   ```
+- **Response** (401 Authentication Error):
+  ```json
+  {
+    "error": "Unauthorized. Token is invalid or expired."
+  }
+  ```
+- **Response** (500 Server Error):
+  ```json
+  {
+    "error": "Internal server error. Please try again later."
+  }
+  ```
 
-### 6. **Email Change**
+### 6. **Email Change** (Requires Authentication)
 
 - **Route**: `POST /api/celeste-id/change-email`
 
@@ -260,14 +336,32 @@ The **Celeste ID** module is responsible for account and profile management, off
     "newEmail": "newemail@example.com"
   }
   ```
-- **Response**:
+- **Response** (Success):
   ```json
   {
     "message": "Email change request initiated. Please check your new email to confirm the change."
   }
   ```
+- **Response** (400 Validation Error - Invalid Email):
+  ```json
+  {
+    "error": "Invalid email format"
+  }
+  ```
+- **Response** (401 Authentication Error):
+  ```json
+  {
+    "error": "Unauthorized. Token is invalid or expired."
+  }
+  ```
+- **Response** (500 Server Error):
+  ```json
+  {
+    "error": "Internal server error. Please try again later."
+  }
+  ```
 
-### 7. **View Game Library**
+### 7. **View Game Library** (Requires Authentication)
 
 - **Route**: `GET /api/celeste-id/library`
 
@@ -277,7 +371,7 @@ The **Celeste ID** module is responsible for account and profile management, off
     "Authorization": "Bearer jwt-token"
   }
   ```
-- **Response**:
+- **Response** (Success):
   ```json
   {
     "library": [
@@ -292,47 +386,16 @@ The **Celeste ID** module is responsible for account and profile management, off
     ]
   }
   ```
-
-### 8. **View Game History**
-
-- **Route**: `GET /api/celeste-id/game-history`
-- **Response**:
+- **Response** (401 Authentication Error):
   ```json
   {
-    "playedGames": [
-      {
-        "gameId": "game123",
-        "playStartDate": "2024-01-20",
-        "trophies": [
-          {
-            "trophyId": "trophy456",
-            "name": "First Step",
-            "unlocked": true,
-            "unlockedAt": "2024-01-21",
-            "score": 10,
-            "tier": "bronze",
-            "unlockConditions": "Complete the first level of the game"
-          }
-        ]
-      }
-    ]
+    "error": "Unauthorized. Token is invalid or expired."
   }
   ```
-
-### 9. **Session Management**
-
-- **Route**: `GET /api/celeste-id/sessions`
-- **Response**:
+- **Response** (500 Server Error):
   ```json
   {
-    "activeSessions": [
-      {
-        "sessionId": "session123",
-        "device": "iPhone",
-        "loginDate": "2024-01-14T12:34:56Z",
-        "ipAddress": "192.168.0.1"
-      }
-    ]
+    "error": "Internal server error. Please try again later."
   }
   ```
 

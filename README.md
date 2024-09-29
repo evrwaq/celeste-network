@@ -1,4 +1,4 @@
-# Celeste Networ
+# Celeste Network
 
 ## Modules
 

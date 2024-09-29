@@ -2,31 +2,9 @@
 
 ## Modules
 
-### 1. Celeste ID
+### 1. [Celeste Id](./docs/modules/celeste-id.md)
 
-The Celeste ID module is responsible for account and profile management, offering features for account creation, login, and profile customization.
-
-- **Celeste ID Registration**
-  - Creation of new Celeste ID with data validation.
-- **Login**
-  - User authentication with email and password.
-- **Password Recovery**
-  - Sends an email for password reset.
-- **Profile Settings**
-  - Update of information such as username, password, profile picture, etc.
-- **Game History**
-  - Displays the history of games purchased and played by the user.
-
-### 2. Games
-
-The games module manages the catalog of games available on the platform. Each game has detailed information and is associated with trophies that players can earn.
-
-- **Game Catalog**
-  - List of all games available on the platform.
-- **Game Details**
-  - Information such as title, description, price, genre, and available trophies.
-- **Game Management**
-  - Add, edit, and remove games from the catalog (admin only).
+### 2. [Games](./docs/modules/games.md)
 
 ### 3. Trophies/Achievements
 

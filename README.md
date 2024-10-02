@@ -8,16 +8,7 @@
 
 ### 3. [Trophies/Achievements](./docs/modules/trophies.md)
 
-### 4. Store
-
-The store contains all the games, subscriptions, and other items that users can purchase. Prices are shown according to the user's region.
-
-- **Store Catalog**
-  - Displays games, subscriptions, and special items available for purchase.
-- **Promotions**
-  - List of items that are on sale.
-- **Product Details**
-  - Description, price, and other information about store products.
+### 4. [Store](./docs/modules/store.md)
 
 ### 5. Checkout
 

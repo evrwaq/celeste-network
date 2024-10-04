@@ -142,7 +142,9 @@ The **Celeste ID** module is responsible for account and profile management, off
 
 ## API Requests and Responses
 
-### 1. **Account Creation**
+<details>
+  <summary>1. Account Creation</summary>
+  <br/>
 
 - **Route**: `POST /api/celeste-id/register`
 
@@ -180,6 +182,7 @@ The **Celeste ID** module is responsible for account and profile management, off
     "error": "Internal server error. Please try again later."
   }
   ```
+  </details>
 
 ### 2. **Login**
 

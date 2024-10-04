@@ -2,7 +2,7 @@
 
 ## Modules
 
-### 1. [Celeste Id](./docs/modules/celeste-id.md)
+### 1. [Celeste Id](./docs/modules/celeste-id/README.md)
 
 ### 2. [Games](./docs/modules/games.md)
 

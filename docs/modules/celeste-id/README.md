@@ -61,7 +61,7 @@ The **Celeste ID** module is responsible for account and profile management, off
 
 ## API Requests and Responses
 
-### 1. **Sign Up**
+### 1. [**Sign Up**](./sign-up.md)
 
 ### 2. **Sign In**
 

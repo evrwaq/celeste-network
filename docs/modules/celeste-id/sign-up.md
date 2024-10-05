@@ -47,6 +47,18 @@
     "error": "Password must be at least 8 characters long"
   }
   ```
+- **Response** (409. Conflict Error - Username already exists):
+  ```json
+  {
+    "error": "Username already exists"
+  }
+  ```
+- **Response** (409. Conflict Error - Email already exists):
+  ```json
+  {
+    "error": "Email already exists"
+  }
+  ```
 - **Response** (500. Server Error):
   ```json
   {

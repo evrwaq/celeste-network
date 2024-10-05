@@ -10,9 +10,34 @@
     "name": "John Doe",
     "username": "john_doe",
     "email": "johndoe@example.com",
-    "password": "password123"
+    "password": "Password123!"
   }
   ```
+
+### Validation Rules
+
+- **Name**
+
+  - Must be between 2 and 50 characters.
+  - Can contain only letters, and only 1 space between names
+
+- **Username**
+
+  - Must be between 3 and 12 characters.
+  - Must be unique.
+  - Can include numbers, but cannot start with a number.
+  - Can contain uppercase and lowercase letters.
+  - Allowed characters: letters, numbers, \_ (underscore), and . (period).
+  - Cannot start with a number, underscore, or period.
+
+- **Email**
+
+  - Must be a valid email format.
+  - Must be unique.
+
+- **Password**
+  - Must be at least 8 characters long.
+  - Must contain at least one uppercase letter, one lowercase letter, one number, and one special character.
 
 ### Response
 

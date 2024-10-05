@@ -36,7 +36,7 @@
   - Must be unique.
 
 - **Password**
-  - Must be at least 8 characters long.
+  - Must be between 8 and 255 characters long.
   - Must contain at least one uppercase letter, one lowercase letter, one number, and one special character.
 
 ### Response
@@ -66,10 +66,10 @@
     "error": "Email is invalid"
   }
   ```
-- **Response** (400. Validation Error - Weak Password):
+- **Response** (400. Validation Error - Invalid Password):
   ```json
   {
-    "error": "Password must be at least 8 characters long"
+    "error": "Password must be between 8 and 255 characters long, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character"
   }
   ```
 - **Response** (409. Conflict Error - Username already exists):

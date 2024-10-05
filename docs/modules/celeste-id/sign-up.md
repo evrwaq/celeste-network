@@ -8,6 +8,7 @@
   ```json
   {
     "name": "John Doe",
+    "username": "john_doe",
     "email": "johndoe@example.com",
     "password": "password123"
   }
@@ -22,10 +23,22 @@
     "accessToken": "jwt-token"
   }
   ```
+- **Response** (400. Validation Error - Invalid Name):
+  ```json
+  {
+    "error": "Name is invalid"
+  }
+  ```
+- **Response** (400. Validation Error - Invalid Username):
+  ```json
+  {
+    "error": "Username is invalid"
+  }
+  ```
 - **Response** (400. Validation Error - Invalid Email):
   ```json
   {
-    "error": "Invalid email format"
+    "error": "Email is invalid"
   }
   ```
 - **Response** (400. Validation Error - Weak Password):

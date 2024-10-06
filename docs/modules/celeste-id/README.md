@@ -65,7 +65,7 @@ The **Celeste ID** module is responsible for account and profile management, off
 
 ### 2. [**Sign In**](./sign-in.md)
 
-### 3. **Password Recovery**
+### 3. [**Password Recovery**](./password-recovery.md)
 
 ### 4. **Password Change** (Requires Authentication)
 

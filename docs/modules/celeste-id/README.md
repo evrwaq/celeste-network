@@ -71,4 +71,6 @@ The **Celeste ID** module is responsible for account and profile management, off
 
 ### 5. [**Email Change**](./email-change.md)
 
-### 6. [**Game Library**](./game-library.md)
+### 6. [**Username Change**](./username-change.md)
+
+### 7. [**Game Library**](./game-library.md)

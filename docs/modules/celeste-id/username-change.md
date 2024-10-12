@@ -1,23 +1,26 @@
-## Username Change
+# Username Change
 
 - **Route**: `POST /api/v1/username-change`
 
-### Request
+## Request
 
 - **Request Headers**:
+
   ```json
   {
     "Authorization": "Bearer jwt-token"
   }
   ```
+
 - **Request Body**:
+
   ```json
   {
     "newUsername": "new_username"
   }
   ```
 
-### Validation Rules
+## Validation Rules
 
 - **Username**
 
@@ -28,27 +31,34 @@
   - Allowed characters: letters, numbers, \_ (underscore), and . (period).
   - Cannot start with a number, underscore, or period.
 
-### Response
+## Response
 
 - **Response** (201. Created):
+
   ```json
   {
     "message": "Username successfully changed"
   }
   ```
+
 - **Response** (400. Validation Error - Invalid Username):
+
   ```json
   {
     "error": "Username is invalid"
   }
   ```
+
 - **Response** (409. Conflict Error - Username already exists):
+
   ```json
   {
     "error": "Username already exists"
   }
   ```
+
 - **Response** (500. Server Error):
+
   ```json
   {
     "error": "Internal server error. Please try again later."

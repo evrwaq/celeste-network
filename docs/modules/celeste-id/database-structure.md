@@ -1,4 +1,4 @@
-## Celeste ID Entity (Database Structure)
+# Celeste ID Entity (Database Structure)
 
 ```typescript
 {

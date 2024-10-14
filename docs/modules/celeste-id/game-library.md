@@ -1,19 +1,21 @@
-## Game Library
+# Game Library
 
 - **Route**: `GET /api/v1/game-library`
 
-### Request
+## Request
 
 - **Headers**:
+
   ```json
   {
     "Authorization": "Bearer jwt-token"
   }
   ```
 
-### Response
+## Response
 
 - **Response** (200. Ok):
+
   ```json
   {
     "library": [
@@ -32,13 +34,17 @@
     ]
   }
   ```
+
 - **Response** (401. Authentication Error):
+
   ```json
   {
     "error": "Unauthorized"
   }
   ```
+
 - **Response** (500. Server Error):
+
   ```json
   {
     "error": "Internal server error. Please try again later."

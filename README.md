@@ -4,7 +4,7 @@
 
 ### 1. [Celeste Id](./docs/modules/celeste-id/README.md)
 
-### 2. [Games](./docs/modules/games.md)
+### 2. [Games](./docs/modules/games/README.md)
 
 ### 3. [Trophies/Achievements](./docs/modules/trophies.md)
 

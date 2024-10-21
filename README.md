@@ -10,4 +10,4 @@
 
 ### 4. [Store](./docs/modules/store.md)
 
-### 5. [Checkout](./docs/modules/checkout.md)
+### 5. [Checkout](./docs/modules/checkout/README.md)

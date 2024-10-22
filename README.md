@@ -8,6 +8,6 @@
 
 ### 3. [Trophies/Achievements](./docs/modules/trophies.md)
 
-### 4. [Store](./docs/modules/store.md)
+### 4. [Store](./docs/modules/store/README.md)
 
 ### 5. [Checkout](./docs/modules/checkout/README.md)

@@ -6,7 +6,7 @@
 
 ### 2. [Games](./docs/modules/games/README.md)
 
-### 3. [Trophies/Achievements](./docs/modules/trophies.md)
+### 3. [Trophies/Achievements](./docs/modules/trophies/README.md)
 
 ### 4. [Store](./docs/modules/store/README.md)
 
